@@ -1,0 +1,58 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.9
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/dianagudu/mccli:
+      branch: main
+      repo: https://github.com/dianagudu/mccli
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/dianagudu/mccli git:
+        commands:
+        - /usr/bin/env sh .sqa/script.cloudy-crimson-chamois.sh
+        container: qc.acc_clammy-viridian-coyote
+  QC.Doc:
+    repos:
+      github.com/dianagudu/mccli find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.silly-tangerine-pinscher.sh
+        container: qc.doc_chummy-orchid-fly
+      github.com/dianagudu/mccli git:
+        commands:
+        - /usr/bin/env sh .sqa/script.baggy-emerald-barb.sh
+        container: qc.doc_geeky-magenta-barracuda
+      github.com/dianagudu/mccli restructuredtext-lint:
+        commands:
+        - /usr/bin/env sh .sqa/script.flaky-zucchini-ladybird.sh
+        container: qc.doc_lumpy-tan-fossa
+  QC.Lic:
+    repos:
+      github.com/dianagudu/mccli licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.gamy-persimmon-rattlesnake.sh
+        container: qc.lic_hazy-linen-birman
+  QC.Sec:
+    repos:
+      github.com/dianagudu/mccli bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.snoopy-mustard-mastiff.sh
+        container: qc.sec_sloppy-charcoal-indri
+  QC.Sty:
+    repos:
+      github.com/dianagudu/mccli flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.snoopy-grey-gopher.sh
+        container: qc.sty_sleepy-yellow-barnacle
+  QC.Ver:
+    repos:
+      github.com/dianagudu/mccli get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.randy-orange-bonobo.sh
+        container: qc.ver_squirrely-brown-baboon
+timeout: 5400
