@@ -2,10 +2,10 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/1.7.9
+      branch: feature/pynblint
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/dianagudu/mccli:
-      branch: main
+      branch: develop
       repo: https://github.com/dianagudu/mccli
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,44 +15,50 @@ sqa_criteria:
     repos:
       github.com/dianagudu/mccli git:
         commands:
-        - /usr/bin/env sh .sqa/script.cloudy-crimson-chamois.sh
-        container: qc.acc_clammy-viridian-coyote
+        - /usr/bin/env sh .sqa/script.hilly-denim-sheepdog.sh
+        container: qc.acc_scanty-gamboge-seahorse
   QC.Doc:
     repos:
       github.com/dianagudu/mccli find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.silly-tangerine-pinscher.sh
-        container: qc.doc_chummy-orchid-fly
+        - /usr/bin/env sh .sqa/script.boozy-azure-baboon.sh
+        container: qc.doc_fuzzy-mustard-paradise
       github.com/dianagudu/mccli git:
         commands:
-        - /usr/bin/env sh .sqa/script.baggy-emerald-barb.sh
-        container: qc.doc_geeky-magenta-barracuda
+        - /usr/bin/env sh .sqa/script.snoopy-ecru-stingray.sh
+        container: qc.doc_wimpy-amethyst-heron
       github.com/dianagudu/mccli restructuredtext-lint:
         commands:
-        - /usr/bin/env sh .sqa/script.flaky-zucchini-ladybird.sh
-        container: qc.doc_lumpy-tan-fossa
+        - /usr/bin/env sh .sqa/script.pokey-red-cockroach.sh
+        container: qc.doc_nerdy-corn-eel
   QC.Lic:
     repos:
       github.com/dianagudu/mccli licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.gamy-persimmon-rattlesnake.sh
-        container: qc.lic_hazy-linen-birman
+        - /usr/bin/env sh .sqa/script.muggy-goldenrod-frise.sh
+        container: qc.lic_sleepy-tan-donkey
   QC.Sec:
     repos:
       github.com/dianagudu/mccli bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.snoopy-mustard-mastiff.sh
-        container: qc.sec_sloppy-charcoal-indri
+        - /usr/bin/env sh .sqa/script.flaky-carmine-fly.sh
+        container: qc.sec_fuzzy-charcoal-panda
   QC.Sty:
     repos:
       github.com/dianagudu/mccli flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.snoopy-grey-gopher.sh
-        container: qc.sty_sleepy-yellow-barnacle
+        - /usr/bin/env sh .sqa/script.zippy-brass-olm.sh
+        container: qc.sty_snippy-chestnut-drever
+  QC.Uni:
+    repos:
+      github.com/dianagudu/mccli pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.stinky-beige-termite.sh
+        container: qc.uni_scummy-ochre-blue
   QC.Ver:
     repos:
       github.com/dianagudu/mccli get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.randy-orange-bonobo.sh
-        container: qc.ver_squirrely-brown-baboon
+        - /usr/bin/env sh .sqa/script.ready-lavender-albatross.sh
+        container: qc.ver_lanky-pumpkin-quoll
 timeout: 5400
